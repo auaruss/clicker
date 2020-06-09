@@ -2,25 +2,29 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gameStarted: false
+    };
+  }
+
+  render() {
+    return (
+      <div id="game">
+        <button 
+          id = "start"
+          onClick = {() => this.setState({gameStarted : true})}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Start game
+        </button>
+        <h1>
+          {String(this.state.gameStarted)}
+        </h1>
+      </div>
+    );
+  }
 }
 
 export default App;
